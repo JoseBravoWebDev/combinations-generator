@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Generador de combinaciones</title>
+
+	<link rel="stylesheet" type="text/css" href="styles.css?v=1.01">
+  <link rel="preload" href="styles.css" as="style">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+	<main>
+		<section class="generator-section">
+			<div class="generador-container">
+				<h1>Generador de Combinaciones</h1>
+				<p>Reglas:</p>
+				<ol>
+					<li>Las combinaciones poseen los números del <strong>1 al 69</strong></li>
+					<li>Las combinaciones deben ser de <strong>5 números</strong></li>
+					<li>Los números dentro de las combinaciones <strong>no pueden repetirse</strong> (ej: 11111, 12826, 25612, etc)</li>
+					<li>Las combinaciones <strong>no pueden repetirse</strong></li>
+				</ol>
+				<button class="btn" id="generateCombination">Generar Combinaciones</button>
+
+				<button class="btn" id="copyToClipboardButton">Copiar a Portapapeles</button>
+			</div>
+
+			<div class="results-container">
+				<div>
+					<p class="numberOfResults"></p>
+
+					<label for="searchInput">
+						<i class="fa-solid fa-magnifying-glass"></i>
+						<input type="text" id="searchInput" placeholder="Buscar Combinación">
+					</label>
+				</div>
+
+				<div id="resultContainer">
+					
+				</div>
+			</div>
+
+			<!-- <div class="copy-import-btn-container">
+				<button class="btn" id="copyToClipboardButton">Copiar a Portapapeles</button>
+	      <button class="btn" id="exportWordButton">Exportar a Word</button>
+	      <button class="btn" id="exportExcelButton">Exportar a Excel</button>
+			</div> -->
+		</section>
+	</main>
+	<script src="script.js"></script>
+</body>
+</html>

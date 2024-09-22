@@ -1,0 +1,11 @@
+#resultContainer {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+#resultContainer p {
+	padding: 4px;
+	outline: 1px solid black;
+}
