@@ -34,7 +34,6 @@ function updateTotalResults() {
 async function letsCombinate() {
   for await (const combination of generateAllCombinations(numbersToCombinate, 5)) {
     combinationsMade.push(combination);
-    console.clear();
     console.log(combinationsMade);
   }
   console.clear();
