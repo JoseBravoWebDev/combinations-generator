@@ -26,66 +26,16 @@ async function* generateCombinations(arr, length) {
   }
 }
 
-async function renderResults() {
-  const resultContainer = document.getElementById('resultContainer');
-  resultContainer.innerHTML = '';
-
-  for await (const combination of generateAllCombinations(numbersToCombinate, 5)) {
-    const combinationElement = document.createElement('p');
-    combinationElement.textContent = combination.join('-').replace(/\s+/g, '');
-    resultContainer.appendChild(combinationElement);
-  }
-
-  // Agregamos un mensaje si no hay resultados
-  if (combinationsMade.length === 0) {
-    const messageElement = document.createElement('p');
-    messageElement.textContent = 'No se han generado combinaciones.';
-    resultContainer.appendChild(messageElement);
-  }
-
-  updateTotalResults();
-}
-
 function updateTotalResults() {
   const totalResultsElement = document.querySelector('.numberOfResults');
   totalResultsElement.innerText = `${combinationsMade.length} Combinaciones fueron generadas`;
 }
 
-function copyToClipboard() {
-  const resultContainer = document.getElementById('resultContainer');
-  let textToCopy = '';
-
-  // Recorremos todos los elementos p dentro de resultContainer
-  Array.from(resultContainer.children).forEach(element => {
-    if (element.tagName === 'P') {
-      textToCopy += element.textContent + '\n';
-    }
-  });
-
-  // Copiamos el texto al portapapeles
-  navigator.clipboard.writeText(textToCopy.trim()).then(
-    function() {
-      alert("Combinaciones copiadas al portapapeles");
-    },
-    function(err) {
-      console.error('Error al intentar copiar:', err);
-    }
-  );
-}
-
-const copyToClipboardButton = document.getElementById('copyToClipboardButton');
-
-copyToClipboardButton.addEventListener('click', () => {
-  copyToClipboard();
-});
-
-
 async function letsCombinate() {
   for await (const combination of generateAllCombinations(numbersToCombinate, 5)) {
     combinationsMade.push(combination);
-    console.log(combinationsMade);
   }
-  renderResults();
+  console.log(combinationsMade);
 }
 
 generateCombination.addEventListener("click", letsCombinate);
